@@ -461,7 +461,7 @@ public class MainActivity extends Activity {
                 ? getString(R.string.add_acquired_date_hint)
                 : getString(R.string.efficiency_detail_format, hoursSaved, workedHoursSinceAcquired, INPUT_DATE.format(earliestAcquired)));
         String progressAmounts = showProgressAmounts
-                ? " (" + (showBitcoinValue ? money(currentValue) : MASK) + " / " + money(targetAmount) + ")"
+                ? " "
                 : "";
         progressValue.setText(getString(R.string.funded_format, progress * 100.0, progressAmounts));
         freedomProgress.setProgress((int) Math.min(1000, Math.max(0, Math.round(progress * 1000))));
