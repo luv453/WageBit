@@ -1,0 +1,5 @@
+WageBit is a local-first dashboard for calculating real hourly wage, stored work time, and a projected Bitcoin freedom date.
+
+Enter monthly income, monthly expenses, cost-of-living increase, weekly work hours, daily work hours, current age, current BTC price, BTC lots with acquired dates, target years of expenses, DCA buy amount, DCA frequency, and projected BTC CAGR. WageBit calculates stored work hours, work days, work months, time efficiency, inflation-adjusted progress toward the freedom goal, the BTC price needed for freedom today, projected age, a projected freedom date, and a simple growth comparison against S&P 500, Nasdaq-100, and gold CAGR assumptions.
+
+The app has no network permission, no analytics, no ads, and no trackers. All financial inputs stay on the device.

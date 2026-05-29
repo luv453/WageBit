@@ -1,0 +1,43 @@
+Categories:
+  - Money
+  - Time
+License: Apache-2.0
+AuthorName: WageBit contributors
+SourceCode: https://example.invalid/wagebit
+IssueTracker: https://example.invalid/wagebit/issues
+
+AutoName: WageBit
+Summary: Convert Bitcoin savings into stored work time
+Description: |-
+    WageBit is a local-first dashboard for people who think about savings as preserved labor.
+
+    Enter monthly income, monthly expenses, weekly and daily work hours, current BTC price,
+    BTC lots with acquired dates, target expense years, cost-of-living increase,
+    DCA amount, DCA frequency, current age, and BTC CAGR. The app calculates real
+    hourly wage, current Bitcoin value, inflation-adjusted goal progress, work time
+    stored, time efficiency, the BTC price needed for freedom today, projected age,
+    a projected freedom date, and a comparison chart against S&P 500, Nasdaq-100,
+    and gold CAGR assumptions.
+
+    WageBit does not use network access, analytics, ads, or trackers. All values are entered
+    by the user and stored locally on the device.
+
+RepoType: git
+Repo: https://example.invalid/wagebit.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: .
+    gradle:
+      - yes
+
+AllowedAPKSigningKeys:
+  - "0000000000000000000000000000000000000000000000000000000000000000"
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+UpdateCheckData: v%v
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1

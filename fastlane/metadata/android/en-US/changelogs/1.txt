@@ -1,0 +1,15 @@
+Initial release.
+
+- Real hourly wage calculator
+- BTC held input
+- Multiple BTC lots with acquired dates
+- Stored work hours, days, and months
+- Freedom date projection
+- Age at projected freedom date
+- Cost-of-living input for inflation-adjusted expense goals
+- BTC time efficiency card
+- DCA cadence and CAGR inputs
+- Goal progress and required BTC price metric
+- Growth comparison chart for BTC, S&P 500, Nasdaq-100, and gold
+- Toggle for hiding total Bitcoin value
+- Local-only storage with no network permission

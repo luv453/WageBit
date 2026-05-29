@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">WageBit</string>
+    <string name="show_total_btc_value">Show total Bitcoin value</string>
+    <string name="show_goal_progress_values">Show goal progress values</string>
+    <string name="freedom_clock_format">%1$s Clock</string>
+    <string name="freedom_progress_format">%1$s Progress</string>
+    <string name="efficiency_format">%1$s Efficiency</string>
+    <string name="work_days_saved">Work Days Saved</string>
+    <string name="work_months_saved">Work Months Saved</string>
+    <string name="hours_saved_format">%,.1f hours</string>
+    <string name="days_saved_format">%,.1f days</string>
+    <string name="months_saved_format">%,.2f months</string>
+    <string name="efficiency_value_format">%,.2f%%</string>
+    <string name="funded_format">%,.1f%% funded%s</string>
+    <string name="btc_format">%,.8f BTC</string>
+    <string name="required_price_format">%s/BTC</string>
+    <string name="hourly_wage_format">%s/hr</string>
+    <string name="years_old_format">%.1f years-old</string>
+    <string name="projection_summary_format">Projected over %,.1f years with the same %s DCA. BTC %.1f%%, S&amp;P 500 12%%, Nasdaq-100 15%%, Gold 7%% CAGR.</string>
+    <string name="efficiency_detail_format">%,.1f stored hours / %,.1f worked hours since %s.</string>
+    <string name="time_is_money">Time is Money</string>
+    <string name="hero_subtitle_bitcoin">Hours of irreversible life energy preserved in %s</string>
+    <string name="hero_subtitle_masked">Hours of irreversible life energy preserved in the world\'s hardest asset</string>
+    <string name="enter_current_age">Enter current age</string>
+    <string name="add_acquired_date_hint">Add an acquired date to compare BTC-stored time against total worked time.</string>
+    <string name="disclaimer_text">The rich can live forever. And the rest of us? I just want to wake up with more time on my hand than hours in the day.</string>
+    <string name="donation_address">Lightning donation address: lnbc1-placeholder-wagebit-donation-address</string>
+    <string name="set_a_goal">Set a goal</string>
+    <string name="today">Today</string>
+    <string name="enter_btc_price">Enter BTC price</string>
+    <string name="beyond_100_years">Beyond 100 years</string>
+</resources>
