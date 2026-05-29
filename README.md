@@ -18,26 +18,8 @@ The app calculates:
 
 ## Why Local Input?
 
-The shared product brief called for all metrics to come from prompted user input. WageBit does not request network access, fetch prices, use analytics, or send financial data anywhere. Users enter their own current BTC price, BTC lots, acquired dates, DCA plan, and retirement assumptions.
+WageBit does not request network access, fetch prices, use analytics, or send financial data anywhere. Users enter their own current BTC price, BTC lots, acquired dates, DCA plan, and retirement assumptions.
 
-## Build
-
-This is a standard Android Gradle project.
-
-```sh
-gradle assembleRelease
-```
-
-For release distribution, configure signing outside the repository. Do not commit keystores or passwords.
-
-## F-Droid Notes
-
-- No proprietary dependencies
-- No network permission
-- No ads, analytics, or trackers
-- Java-only native Android implementation
-- App data is stored in Android `SharedPreferences`
-- Replace the placeholder repository URLs in `metadata/com.wagebit.app.yml` with the public source repository before submitting to F-Droid.
 
 ## License
 

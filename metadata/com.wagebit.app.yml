@@ -3,8 +3,8 @@ Categories:
   - Time
 License: Apache-2.0
 AuthorName: WageBit contributors
-SourceCode: https://example.invalid/wagebit
-IssueTracker: https://example.invalid/wagebit/issues
+SourceCode: https://github.com/luv453/WageBit
+IssueTracker: https://github.com/luv453/WageBit/issues
 
 AutoName: WageBit
 Summary: Convert Bitcoin savings into stored work time
@@ -23,7 +23,7 @@ Description: |-
     by the user and stored locally on the device.
 
 RepoType: git
-Repo: https://example.invalid/wagebit.git
+Repo: https://github.com/luv453/WageBit.git
 
 Builds:
   - versionName: 0.1.0
@@ -34,7 +34,7 @@ Builds:
       - yes
 
 AllowedAPKSigningKeys:
-  - "0000000000000000000000000000000000000000000000000000000000000000"
+  - "a13a4be87f7def06975e2d0a4e26b48777e97f77a79fb2e61d52245b40e74906"
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
