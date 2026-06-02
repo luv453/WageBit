@@ -48,7 +48,7 @@
     <string name="forbidden_pill_hint">BTC</string>
     <string name="unlock_title">Donate to unlock Forbidden Setting</string>
     <string name="unlock_description">unlock forbidden setting. orange pill friends and family replacing btc with some other b.s.</string>
-    <string name="unlock_checkbox">I ran the bits</string>
+    <string name="unlock_checkbox">i ran the bits</string>
     <string name="copied_toast">Address copied to clipboard</string>
     <string name="btc_unit">BTC</string>
     <string name="bitcoin_unit">Bitcoin</string>

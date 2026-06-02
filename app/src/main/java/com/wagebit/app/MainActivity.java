@@ -130,6 +130,7 @@ public class MainActivity extends Activity {
     private String forbiddenPill = "BTC";
     private boolean unitWeeks = false;
     private boolean unitYears = false;
+    private boolean unitFreedomDays = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,6 +184,10 @@ public class MainActivity extends Activity {
         freedomDateRow.addView(freedomDateValue, new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
         freedomYearsValue = text("", 18, TEXT, Typeface.NORMAL);
         freedomYearsValue.setGravity(Gravity.RIGHT);
+        freedomYearsValue.setOnClickListener(v -> {
+            unitFreedomDays = !unitFreedomDays;
+            recalculate();
+        });
         freedomDateRow.addView(freedomYearsValue);
         freedomCard.addView(freedomDateRow);
         
@@ -688,7 +693,13 @@ public class MainActivity extends Activity {
         freedomDateValue.setText(projection.label);
         freedomDateValue.setTextColor(projection.hit ? GREEN : RED);
         if (projection.hit && projection.yearsFromNow > 0) {
-            freedomYearsValue.setText(String.format(Locale.US, "%.1f yrs", projection.yearsFromNow));
+            String timeText;
+            if (unitFreedomDays) {
+                timeText = String.format(Locale.US, "%,.0f days", projection.yearsFromNow * 365.25);
+            } else {
+                timeText = String.format(Locale.US, "%.1f yrs", projection.yearsFromNow);
+            }
+            freedomYearsValue.setText(timeText);
             freedomYearsValue.setVisibility(View.VISIBLE);
         } else {
             freedomYearsValue.setVisibility(View.GONE);
