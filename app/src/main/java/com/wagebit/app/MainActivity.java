@@ -400,14 +400,25 @@ public class MainActivity extends Activity {
         root.addView(disclaimer, blockParams());
 
         TextView donation = text(getString(R.string.donation_address), 12, MUTED, Typeface.NORMAL);
-        SpannableString donationStyled = new SpannableString(donation.getText());
-        donationStyled.setSpan(new UnderlineSpan(), 0, donationStyled.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        String donationText = donation.getText().toString();
+        SpannableString donationStyled = new SpannableString(donationText);
+        int btcIndex = donationText.indexOf("bc1q");
+        if (btcIndex != -1) {
+            donationStyled.setSpan(new UnderlineSpan(), btcIndex, donationText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        } else {
+            donationStyled.setSpan(new UnderlineSpan(), 0, donationStyled.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
         donation.setText(donationStyled);
         donation.setGravity(Gravity.CENTER);
         donation.setClickable(true);
         donation.setFocusable(true);
         donation.setOnClickListener(v -> {
-            String addr = getString(R.string.donation_address).replace("Lightning donation address: ", "");
+            String fullText = getString(R.string.donation_address);
+            String addr = fullText;
+            int btcStart = fullText.indexOf("bc1q");
+            if (btcStart != -1) {
+                addr = fullText.substring(btcStart);
+            }
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             clipboard.setPrimaryClip(ClipData.newPlainText("Donation Address", addr));
             Toast.makeText(this, R.string.copied_toast, Toast.LENGTH_SHORT).show();

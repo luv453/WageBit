@@ -16,8 +16,8 @@ Description: |-
     DCA amount, DCA frequency, current age, and BTC CAGR. The app calculates real
     hourly wage, current Bitcoin value, inflation-adjusted goal progress, work time
     stored, time efficiency, the BTC price needed for freedom today, projected age,
-    a projected freedom date, and a comparison chart against S&P 500, Nasdaq-100,
-    and gold CAGR assumptions.
+    a projected freedom date, a compounding expense calculator, a home screen widget,
+    and a comparison chart against S&P 500, Nasdaq-100, and gold CAGR assumptions.
 
     WageBit does not use network access, analytics, ads, or trackers. All values are entered
     by the user and stored locally on the device.

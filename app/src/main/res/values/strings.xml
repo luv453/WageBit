@@ -35,7 +35,7 @@
     <string name="enter_current_age">Enter current age</string>
     <string name="add_acquired_date_hint">Add an acquired date to compare BTC-stored time against total worked time.</string>
     <string name="disclaimer_text">The rich can live forever. And the rest of us? I just want to wake up with more time on my hand than hours in the day.</string>
-    <string name="donation_address">Lightning donation address: lnbc1-placeholder-wagebit-donation-address</string>
+    <string name="donation_address">Donation address: bc1q7v3ecw9granygtqlwuwsas5z2wl9l0fgv2tsyu</string>
     <string name="set_a_goal">Set a goal</string>
     <string name="today">Today</string>
     <string name="enter_btc_price">Enter BTC price</string>
