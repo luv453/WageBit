@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
@@ -666,7 +667,7 @@ public class MainActivity extends Activity {
         double netIncome = monthlyIncome - monthlyExpenses;
         double hourlyWage = monthlyHours > 0 ? netIncome / monthlyHours : 0;
         double currentValue = btcHeld * btcPrice;
-        double targetAmount = inflatedExpenseGoal(monthlyExpenses, expenseYears, costOfLivingPercent);
+        double targetAmount = Projector.calculateInflatedGoal(monthlyExpenses, expenseYears, costOfLivingPercent);
         double targetBtc = btcPrice > 0 ? targetAmount / btcPrice : 0;
         double progress = targetAmount > 0 ? currentValue / targetAmount : 0;
         double hoursSaved = hourlyWage > 0 ? currentValue / hourlyWage : 0;
@@ -850,37 +851,9 @@ public class MainActivity extends Activity {
     }
 
     private Projection projectFreedomDate(double btcHeld, double btcPrice, double targetAmount, double dcaAmount, int frequencyIndex, double cagrPercent) {
-        if (targetAmount <= 0) {
-            return new Projection(getString(R.string.set_a_goal), false, 0);
-        }
-        if (btcPrice > 0 && btcHeld * btcPrice >= targetAmount) {
-            return new Projection(getString(R.string.today), true, 0);
-        }
-        if (btcPrice <= 0) {
-            return new Projection(getString(R.string.enter_btc_price), false, 0);
-        }
-
-        int daysPerStep = frequencyDays(frequencyIndex);
-        double currentBtc = Math.max(0, btcHeld);
-        double price = btcPrice;
-        double annualGrowth = Math.max(-0.999, cagrPercent / 100.0);
-        Calendar start = Calendar.getInstance();
-        Calendar date = Calendar.getInstance();
-        int maxSteps = Math.max(1, (int) Math.ceil(36500.0 / daysPerStep));
-
-        for (int step = 1; step <= maxSteps; step++) {
-            price *= Math.pow(1.0 + annualGrowth, daysPerStep / 365.0);
-            if (dcaAmount > 0) {
-                currentBtc += dcaAmount / price;
-            }
-            date.add(Calendar.DAY_OF_YEAR, daysPerStep);
-            if (currentBtc * price >= targetAmount) {
-                double yearsFromNow = daysBetween(start.getTime(), date.getTime()) / 365.25;
-                return new Projection(DISPLAY_DATE.format(date.getTime()), true, yearsFromNow);
-            }
-        }
-
-        return new Projection(getString(R.string.beyond_100_years), false, 100);
+        Projector.Result res = Projector.project(btcHeld, btcPrice, targetAmount, dcaAmount, frequencyIndex, cagrPercent,
+                getString(R.string.set_a_goal), getString(R.string.today), getString(R.string.enter_btc_price), getString(R.string.beyond_100_years));
+        return new Projection(res.label, res.hit, res.yearsFromNow);
     }
 
     private double[][] buildComparisonSeries(double startingValue, double dcaAmount, int frequencyIndex, double btcCagrPercent, int months) {
@@ -897,23 +870,6 @@ public class MainActivity extends Activity {
             }
         }
         return series;
-    }
-
-    private double inflatedExpenseGoal(double monthlyExpenses, double years, double costOfLivingPercent) {
-        if (monthlyExpenses <= 0 || years <= 0) {
-            return 0;
-        }
-        double annualGrowth = Math.max(-0.999, costOfLivingPercent / 100.0);
-        int fullYears = (int) Math.floor(years);
-        double partialYear = years - fullYears;
-        double total = 0;
-        for (int year = 0; year < fullYears; year++) {
-            total += monthlyExpenses * 12.0 * Math.pow(1.0 + annualGrowth, year);
-        }
-        if (partialYear > 0) {
-            total += monthlyExpenses * 12.0 * partialYear * Math.pow(1.0 + annualGrowth, fullYears);
-        }
-        return total;
     }
 
     private int dcaEventsPerMonth(int position) {
@@ -997,6 +953,11 @@ public class MainActivity extends Activity {
             editor.putString("btcLotDate" + i, value(btcLots.get(i).acquiredDate));
         }
         editor.apply();
+
+        // Notify widget
+        Intent intent = new Intent(this, FreedomWidgetProvider.class);
+        intent.setAction(FreedomWidgetProvider.ACTION_UPDATE);
+        sendBroadcast(intent);
     }
 
     private double totalBtcHeld() {
