@@ -22,6 +22,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i '/foojay/d' ../settings.gradle
+    binaries: https://github.com/luv453/WageBit/releases/download/v0.1.0/app-release.apk
+
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
