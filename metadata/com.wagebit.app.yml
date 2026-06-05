@@ -29,13 +29,12 @@ Builds:
   - versionName: 0.1.0
     versionCode: 1
     commit: v0.1.0
-    subdir: .
     gradle:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
     prebuild: sed -i '/org.gradle.toolchains.foojay-resolver/d' settings.gradle
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: v(.*)
 CurrentVersion: 0.1.0
