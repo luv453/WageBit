@@ -32,8 +32,7 @@ Builds:
     subdir: app
     gradle:
       - assembleRelease
-    prebuild:
-      - sed -i '/org.gradle.toolchains.foojay-resolver/d' settings.gradle
+    prebuild: sed -i '/org.gradle.toolchains.foojay-resolver/d' settings.gradle
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
