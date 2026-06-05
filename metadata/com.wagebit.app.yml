@@ -8,13 +8,16 @@ IssueTracker: https://github.com/luv453/WageBit/issues
 
 AutoName: WageBit
 
+AllowedAPKSigningKeys:
+  - "3be80023393ec5714d620c84be33fbb832e33f7268cd1b3814b44065272b94ef"
+
 RepoType: git
 Repo: https://github.com/luv453/WageBit.git
 
 Builds:
   - versionName: 0.1.0
     versionCode: 1
-    commit: 94be3b1a280b89ee95f48b97c9d3404c0d6cd24d
+    commit: 47d1a9040af7f2a5ca03b1997d3aa29ede7d56e3
     subdir: app
     gradle:
       - yes
