@@ -36,5 +36,5 @@ Builds:
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: v%v
-CurrentVersion: 1.0.0
+CurrentVersion: 0.1.0
 CurrentVersionCode: 1
