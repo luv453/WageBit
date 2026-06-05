@@ -39,5 +39,5 @@ AllowedAPKSigningKeys:
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: v%v
-CurrentVersion: 0.1.0
+CurrentVersion: 1.0.0
 CurrentVersionCode: 1
